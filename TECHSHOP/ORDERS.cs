@@ -14,8 +14,8 @@ namespace TECHSHOP
     
     public partial class ORDERS
     {
-        public int ID_ORDER { get; set; }
-        public int ID_PRODUCT { get; set; }
+        public int Id_order { get; set; }
+        public int Id_prod { get; set; }
         public int PRICEALL { get; set; }
         public int COUNT { get; set; }
         public string STATUSO { get; set; }

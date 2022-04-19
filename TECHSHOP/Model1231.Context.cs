@@ -13,10 +13,10 @@ namespace TECHSHOP
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class TECHSHOPBDEntities7 : DbContext
+    public partial class HookanShopEntities1 : DbContext
     {
-        public TECHSHOPBDEntities7()
-            : base("name=TECHSHOPBDEntities7")
+        public HookanShopEntities1()
+            : base("name=HookanShopEntities1")
         {
         }
     

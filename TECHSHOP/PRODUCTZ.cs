@@ -22,9 +22,9 @@ namespace TECHSHOP
         void ShowInfa()
         {
             comboBox1.Items.Clear();
-            foreach (PRODUCTS prod in Program.TECHSHOPBD.PRODUCTS)
+            foreach (PRODUCTS prod in Program.HookanShop.PRODUCTS)
             {
-                string[] item = { prod.ID_PRODUCT.ToString() + '.', prod.NAMEP + '.', prod.PRICEP.ToString() + 'Р'};
+                string[] item = { prod.Id_prod.ToString() + '.', prod.NAMEP + '.', prod.PRICEP};
                 comboBox1.Items.Add(string.Join(" ", item));
             }
         }
@@ -34,34 +34,34 @@ namespace TECHSHOP
             LVPROD.Items.Clear();
             listView1.Items.Clear();
             listView2.Items.Clear();
-            foreach (PRODUCTS pr in Program.TECHSHOPBD.PRODUCTS)
+            foreach (PRODUCTS pr in Program.HookanShop.PRODUCTS)
             {
-                if (pr.GROUPPROD == "Процессоры")
+                if (pr.GROUPPROD == "ПОД-СИСТЕМЫ")
                 {
                     ListViewItem item = new ListViewItem(new string[]
                     {
-                    pr.NAMEP, pr.PRICEP, pr.COUNTP, pr.GRADEP.ToString(),
-                    pr.GROUPPROD, pr.DESCRYPTPROD
+                    pr.NAMEP, pr.PRICEP, pr.COUNTP,
+                    pr.GROUPPROD
                     });
                     item.Tag = pr;
                     LVPROD.Items.Add(item);
                 }
-                if (pr.GROUPPROD == "Видеокарты")
+                if (pr.GROUPPROD == "ЖИДКОСТИ")
                 {
                     ListViewItem item = new ListViewItem(new string[]
                     {
-                    pr.NAMEP, pr.PRICEP, pr.COUNTP, pr.GRADEP.ToString(),
-                    pr.GROUPPROD, pr.DESCRYPTPROD
+                    pr.NAMEP, pr.PRICEP, pr.COUNTP,
+                    pr.GROUPPROD
                     });
                     item.Tag = pr;
                     listView1.Items.Add(item);
                 }
-                if (pr.GROUPPROD == "Ноутбуки")
+                if (pr.GROUPPROD == "ИСПАРИТЕЛИ")
                 {
                     ListViewItem item = new ListViewItem(new string[]
                     {
-                    pr.NAMEP, pr.PRICEP, pr.COUNTP, pr.GRADEP.ToString(),
-                    pr.GROUPPROD, pr.DESCRYPTPROD
+                    pr.NAMEP, pr.PRICEP, pr.COUNTP,
+                    pr.GROUPPROD
                     });
                     item.Tag = pr;
                     listView2.Items.Add(item);
@@ -75,12 +75,12 @@ namespace TECHSHOP
         private void button4_Click(object sender, EventArgs e)
         {
             ORDERS o = new ORDERS();
-            o.ID_PRODUCT = Convert.ToInt32(comboBox1.SelectedItem.ToString().Split('.')[0]);
+            o.Id_prod = Convert.ToInt32(comboBox1.SelectedItem.ToString().Split('.')[0]);
             o.COUNT = Convert.ToInt32(textBoxCount.Text);
             o.PRICEALL = Convert.ToInt32(textBoxCount.Text) * Convert.ToInt32(comboBox1.SelectedItem.ToString().Split('.')[2]);
             o.STATUSO = "Создан";
-            Program.TECHSHOPBD.ORDERS.Add(o);
-            Program.TECHSHOPBD.SaveChanges();
+            Program.HookanShop.ORDERS.Add(o);
+            Program.HookanShop.SaveChanges();
             ORDERZ or = new ORDERZ();
             or.Show();
         }
@@ -129,22 +129,22 @@ namespace TECHSHOP
                 if (LVPROD.SelectedItems.Count == 1)
                 {
                     PRODUCTS pr = LVPROD.SelectedItems[0].Tag as PRODUCTS;
-                    Program.TECHSHOPBD.PRODUCTS.Remove(pr);
-                    Program.TECHSHOPBD.SaveChanges();
+                    Program.HookanShop.PRODUCTS.Remove(pr);
+                    Program.HookanShop.SaveChanges();
                     ShowProd();
                 }
                 if (listView1.SelectedItems.Count == 1)
                 {
                     PRODUCTS pr = listView1.SelectedItems[0].Tag as PRODUCTS;
-                    Program.TECHSHOPBD.PRODUCTS.Remove(pr);
-                    Program.TECHSHOPBD.SaveChanges();
+                    Program.HookanShop.PRODUCTS.Remove(pr);
+                    Program.HookanShop.SaveChanges();
                     ShowProd();
                 }
                 if (listView2.SelectedItems.Count == 1)
                 {
                     PRODUCTS pr = listView2.SelectedItems[0].Tag as PRODUCTS;
-                    Program.TECHSHOPBD.PRODUCTS.Remove(pr);
-                    Program.TECHSHOPBD.SaveChanges();
+                    Program.HookanShop.PRODUCTS.Remove(pr);
+                    Program.HookanShop.SaveChanges();
                     ShowProd();
                 }
             } catch

@@ -33,12 +33,10 @@ namespace TECHSHOP
             PRODUCTS pr = new PRODUCTS();
             pr.NAMEP = Convert.ToString(TBN.Text);
             pr.PRICEP = Convert.ToString(TBP.Text);
-            pr.GRADEP = Convert.ToInt32(TBGG.Text);
             pr.GROUPPROD = Convert.ToString(TBG.Text);
             pr.COUNTP = Convert.ToString(TBC.Text);
-            pr.DESCRYPTPROD = Convert.ToString(TBD.Text);
-            Program.TECHSHOPBD.PRODUCTS.Add(pr);
-            Program.TECHSHOPBD.SaveChanges();
+            Program.HookanShop.PRODUCTS.Add(pr);
+            Program.HookanShop.SaveChanges();
 
             MessageBox.Show("Товар успешно сохранен!", "ОК!", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }

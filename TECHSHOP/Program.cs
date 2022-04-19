@@ -8,7 +8,7 @@ namespace TECHSHOP
 {
     internal static class Program
     {
-        public static TECHSHOPBDEntities7 TECHSHOPBD = new TECHSHOPBDEntities7();
+        public static HookanShopEntities1 HookanShop = new HookanShopEntities1();
         /// <summary>
         /// Главная точка входа для приложения.
         /// </summary>

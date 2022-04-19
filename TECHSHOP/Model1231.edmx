@@ -4,42 +4,40 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище TECHSHOPBDModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище HookanShopModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="LOGINING">
           <Key>
-            <PropertyRef Name="ID_USER" />
+            <PropertyRef Name="Id_us" />
           </Key>
-          <Property Name="ID_USER" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_us" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Login" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="ORDERS">
           <Key>
-            <PropertyRef Name="ID_ORDER" />
+            <PropertyRef Name="Id_order" />
           </Key>
-          <Property Name="ID_ORDER" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ID_PRODUCT" Type="int" Nullable="false" />
+          <Property Name="Id_order" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_prod" Type="int" Nullable="false" />
           <Property Name="PRICEALL" Type="int" Nullable="false" />
           <Property Name="COUNT" Type="int" Nullable="false" />
-          <Property Name="STATUSO" Type="nvarchar(max)" />
+          <Property Name="STATUSO" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="PRODUCTS">
           <Key>
-            <PropertyRef Name="ID_PRODUCT" />
+            <PropertyRef Name="Id_prod" />
           </Key>
-          <Property Name="ID_PRODUCT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_prod" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NAMEP" Type="nvarchar(max)" Nullable="false" />
           <Property Name="PRICEP" Type="nvarchar(max)" Nullable="false" />
           <Property Name="COUNTP" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="GRADEP" Type="float" Nullable="false" />
           <Property Name="GROUPPROD" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="DESCRYPTPROD" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="REGA">
           <Key>
-            <PropertyRef Name="ID_USER" />
+            <PropertyRef Name="Id_us" />
           </Key>
-          <Property Name="ID_USER" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_us" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Fname" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Lname" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Login" Type="nvarchar(max)" Nullable="false" />
@@ -50,14 +48,14 @@
           <End Role="ORDERS" Type="Self.ORDERS" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PRODUCTS">
-              <PropertyRef Name="ID_PRODUCT" />
+              <PropertyRef Name="Id_prod" />
             </Principal>
             <Dependent Role="ORDERS">
-              <PropertyRef Name="ID_PRODUCT" />
+              <PropertyRef Name="Id_prod" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Хранилище TECHSHOPBDModelContainer">
+        <EntityContainer Name="Хранилище HookanShopModelContainer">
           <EntitySet Name="LOGINING" EntityType="Self.LOGINING" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ORDERS" EntityType="Self.ORDERS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PRODUCTS" EntityType="Self.PRODUCTS" Schema="dbo" store:Type="Tables" />
@@ -71,44 +69,42 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="TECHSHOPBDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="HookanShopModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="LOGINING">
           <Key>
-            <PropertyRef Name="ID_USER" />
+            <PropertyRef Name="Id_us" />
           </Key>
-          <Property Name="ID_USER" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_us" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Login" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityType Name="ORDERS">
           <Key>
-            <PropertyRef Name="ID_ORDER" />
+            <PropertyRef Name="Id_order" />
           </Key>
-          <Property Name="ID_ORDER" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ID_PRODUCT" Type="Int32" Nullable="false" />
+          <Property Name="Id_order" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_prod" Type="Int32" Nullable="false" />
           <Property Name="PRICEALL" Type="Int32" Nullable="false" />
           <Property Name="COUNT" Type="Int32" Nullable="false" />
-          <Property Name="STATUSO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="STATUSO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="PRODUCTS" Relationship="Self.FK_ORDERS_PRODUCTS" FromRole="ORDERS" ToRole="PRODUCTS" />
         </EntityType>
         <EntityType Name="PRODUCTS">
           <Key>
-            <PropertyRef Name="ID_PRODUCT" />
+            <PropertyRef Name="Id_prod" />
           </Key>
-          <Property Name="ID_PRODUCT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_prod" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NAMEP" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="PRICEP" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="COUNTP" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="GRADEP" Type="Double" Nullable="false" />
           <Property Name="GROUPPROD" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="DESCRYPTPROD" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="ORDERS" Relationship="Self.FK_ORDERS_PRODUCTS" FromRole="PRODUCTS" ToRole="ORDERS" />
         </EntityType>
         <EntityType Name="REGA">
           <Key>
-            <PropertyRef Name="ID_USER" />
+            <PropertyRef Name="Id_us" />
           </Key>
-          <Property Name="ID_USER" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_us" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Fname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Lname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Login" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
@@ -119,14 +115,14 @@
           <End Role="ORDERS" Type="Self.ORDERS" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PRODUCTS">
-              <PropertyRef Name="ID_PRODUCT" />
+              <PropertyRef Name="Id_prod" />
             </Principal>
             <Dependent Role="ORDERS">
-              <PropertyRef Name="ID_PRODUCT" />
+              <PropertyRef Name="Id_prod" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="TECHSHOPBDEntities7" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="HookanShopEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="LOGINING" EntityType="Self.LOGINING" />
           <EntitySet Name="ORDERS" EntityType="Self.ORDERS" />
           <EntitySet Name="PRODUCTS" EntityType="Self.PRODUCTS" />
@@ -141,21 +137,21 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище TECHSHOPBDModelContainer" CdmEntityContainer="TECHSHOPBDEntities7">
+        <EntityContainerMapping StorageEntityContainer="Хранилище HookanShopModelContainer" CdmEntityContainer="HookanShopEntities1">
           <EntitySetMapping Name="LOGINING">
-            <EntityTypeMapping TypeName="TECHSHOPBDModel.LOGINING">
+            <EntityTypeMapping TypeName="HookanShopModel.LOGINING">
               <MappingFragment StoreEntitySet="LOGINING">
-                <ScalarProperty Name="ID_USER" ColumnName="ID_USER" />
+                <ScalarProperty Name="Id_us" ColumnName="Id_us" />
                 <ScalarProperty Name="Login" ColumnName="Login" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ORDERS">
-            <EntityTypeMapping TypeName="TECHSHOPBDModel.ORDERS">
+            <EntityTypeMapping TypeName="HookanShopModel.ORDERS">
               <MappingFragment StoreEntitySet="ORDERS">
-                <ScalarProperty Name="ID_ORDER" ColumnName="ID_ORDER" />
-                <ScalarProperty Name="ID_PRODUCT" ColumnName="ID_PRODUCT" />
+                <ScalarProperty Name="Id_order" ColumnName="Id_order" />
+                <ScalarProperty Name="Id_prod" ColumnName="Id_prod" />
                 <ScalarProperty Name="PRICEALL" ColumnName="PRICEALL" />
                 <ScalarProperty Name="COUNT" ColumnName="COUNT" />
                 <ScalarProperty Name="STATUSO" ColumnName="STATUSO" />
@@ -163,22 +159,20 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PRODUCTS">
-            <EntityTypeMapping TypeName="TECHSHOPBDModel.PRODUCTS">
+            <EntityTypeMapping TypeName="HookanShopModel.PRODUCTS">
               <MappingFragment StoreEntitySet="PRODUCTS">
-                <ScalarProperty Name="ID_PRODUCT" ColumnName="ID_PRODUCT" />
+                <ScalarProperty Name="Id_prod" ColumnName="Id_prod" />
                 <ScalarProperty Name="NAMEP" ColumnName="NAMEP" />
                 <ScalarProperty Name="PRICEP" ColumnName="PRICEP" />
                 <ScalarProperty Name="COUNTP" ColumnName="COUNTP" />
-                <ScalarProperty Name="GRADEP" ColumnName="GRADEP" />
                 <ScalarProperty Name="GROUPPROD" ColumnName="GROUPPROD" />
-                <ScalarProperty Name="DESCRYPTPROD" ColumnName="DESCRYPTPROD" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="REGA">
-            <EntityTypeMapping TypeName="TECHSHOPBDModel.REGA">
+            <EntityTypeMapping TypeName="HookanShopModel.REGA">
               <MappingFragment StoreEntitySet="REGA">
-                <ScalarProperty Name="ID_USER" ColumnName="ID_USER" />
+                <ScalarProperty Name="Id_us" ColumnName="Id_us" />
                 <ScalarProperty Name="Fname" ColumnName="Fname" />
                 <ScalarProperty Name="Lname" ColumnName="Lname" />
                 <ScalarProperty Name="Login" ColumnName="Login" />

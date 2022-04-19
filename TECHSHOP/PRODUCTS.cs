@@ -20,13 +20,11 @@ namespace TECHSHOP
             this.ORDERS = new HashSet<ORDERS>();
         }
     
-        public int ID_PRODUCT { get; set; }
+        public int Id_prod { get; set; }
         public string NAMEP { get; set; }
         public string PRICEP { get; set; }
         public string COUNTP { get; set; }
-        public double GRADEP { get; set; }
         public string GROUPPROD { get; set; }
-        public string DESCRYPTPROD { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ORDERS> ORDERS { get; set; }

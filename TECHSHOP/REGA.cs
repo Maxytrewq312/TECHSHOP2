@@ -14,7 +14,7 @@ namespace TECHSHOP
     
     public partial class REGA
     {
-        public int ID_USER { get; set; }
+        public int Id_us { get; set; }
         public string Fname { get; set; }
         public string Lname { get; set; }
         public string Login { get; set; }

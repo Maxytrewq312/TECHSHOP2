@@ -14,7 +14,7 @@ namespace TECHSHOP
     
     public partial class LOGINING
     {
-        public int ID_USER { get; set; }
+        public int Id_us { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
     }

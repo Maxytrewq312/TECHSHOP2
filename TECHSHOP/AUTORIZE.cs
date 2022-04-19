@@ -32,7 +32,7 @@ namespace TECHSHOP
             else
             {
                 bool k = false;
-                foreach (LOGINING user in Program.TECHSHOPBD.LOGINING)
+                foreach (LOGINING user in Program.HookanShop.LOGINING)
                 {
                     if (TBLOGINA.Text == user.Login && TBPASSWORDA.Text == user.Password)
                     {

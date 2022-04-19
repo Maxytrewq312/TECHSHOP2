@@ -27,9 +27,9 @@ namespace TECHSHOP
             LOGINING aut = new LOGINING();
             aut.Login = TBLOGINR.Text;
             aut.Password = TBPASSWORDR.Text;
-            Program.TECHSHOPBD.REGA.Add(reg);
-            Program.TECHSHOPBD.LOGINING.Add(aut);
-            Program.TECHSHOPBD.SaveChanges();
+            Program.HookanShop.REGA.Add(reg);
+            Program.HookanShop.LOGINING.Add(aut);
+            Program.HookanShop.SaveChanges();
             PRODUCTZ sh = new PRODUCTZ();
             sh.Show();
         }

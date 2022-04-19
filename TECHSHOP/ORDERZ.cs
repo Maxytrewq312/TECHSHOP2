@@ -23,7 +23,7 @@ namespace TECHSHOP
         void ShowList()
         {
             LVORDERZ.Items.Clear();
-            foreach (ORDERS or in Program.TECHSHOPBD.ORDERS)
+            foreach (ORDERS or in Program.HookanShop.ORDERS)
             {
                 ListViewItem it = new ListViewItem(new string[]
                 {
@@ -45,7 +45,7 @@ namespace TECHSHOP
             {
                 ORDERS or = LVORDERZ.SelectedItems[0].Tag as ORDERS;
                 or.STATUSO = Convert.ToString(STATUSCB.Text);
-                Program.TECHSHOPBD.SaveChanges();
+                Program.HookanShop.SaveChanges();
                 ShowList();
             }
         }
@@ -67,8 +67,8 @@ namespace TECHSHOP
                 if (LVORDERZ.SelectedItems.Count == 1)
                 {
                     ORDERS or = LVORDERZ.SelectedItems[0].Tag as ORDERS;
-                    Program.TECHSHOPBD.ORDERS.Remove(or);
-                    Program.TECHSHOPBD.SaveChanges();
+                    Program.HookanShop.ORDERS.Remove(or);
+                    Program.HookanShop.SaveChanges();
                     ShowList();
                     MessageBox.Show("Запись успешно удалена!", "Успех!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
